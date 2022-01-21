@@ -2,6 +2,8 @@
 
 This is a WordPress plugin that allows you to refresh your cache periodically or on-demand.
 
+And by refreshing, I mean it will ping your page using a HTTP GET request.
+
 It's mostly useful when used in conjunction with [microcaching](https://siipo.la/blog/never-miss-the-cache-with-nginx-microcaching) or for warming your cache after a deployment.
 
 The plugin works in the background using a queue so it will refresh one page at the time and thus will hopefully avoid overloading your server.
