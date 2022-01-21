@@ -11,13 +11,29 @@ require __DIR__ . '/vendor/woocommerce/action-scheduler/action-scheduler.php';
 
 function cache_refresher_run()
 {
-    $public_post_types = get_post_types(['public' => true]);
+    // For some reason `page` is not `publicly_queryable` ? So we need to do this explicitly.
+    $default_post_types = ['post', 'page', 'attachment'];
+
+    // This takes into account any custom post types
+    $public_post_types = get_post_types(['publicly_queryable' => true]);
     $public_post_types = array_keys($public_post_types);
+
+    $public_post_types = array_merge($default_post_types, $public_post_types);
+
+    // Most people probably don't want media pages indexed and it will just slow down the process
+    // on sites with a lot of media
+    $public_post_types = array_diff($public_post_types, ['attachment']);
+
+    $public_post_types = array_unique($public_post_types);
+
+    // Allow user to filter the values
+    $public_post_types = apply_filters('cache_refresher/post_types', $public_post_types);
 
     $query = new WP_Query([
         'post_type' => $public_post_types,
         'posts_per_page' => -1,
         'fields' => 'ids',
+        'post_status' => ['publish', 'inherit']
     ]);
 
     $posts = $query->posts;
