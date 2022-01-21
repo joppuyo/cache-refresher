@@ -37,3 +37,6 @@ This plugin will refresh all pages on your site every day at 00:01 in the site t
 ## Refresh on save
 
 When you save or delete a post, the plugin will ping the permalink of that post. I will maybe add some option to disable or customize this in the future.
+
+⚠️ **Refresh on save doesn't use a queue. Instead it's done immediately after the save using an asynchronous request**
+
