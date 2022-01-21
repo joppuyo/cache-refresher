@@ -3,6 +3,7 @@
 namespace NPX\CacheRefresher;
 
 use WP_Query;
+use WP_CLI;
 
 class Plugin
 {
