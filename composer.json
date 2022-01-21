@@ -1,5 +1,17 @@
 {
+    "name": "joppuyo/cache-refresher",
+    "description": "A plugin to refresh your cache periodically or on demand",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Johannes Siipola",
+            "email": "johannes@siipo.la"
+        }
+    ],
     "require": {
         "woocommerce/action-scheduler": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {"NPX\\CacheRefresher\\": "lib/"}
     }
 }
