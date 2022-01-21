@@ -57,8 +57,6 @@ class Plugin
     function cache_refresher_init()
     {
         $this->post_types = $this->get_post_types();
-
-        error_log("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
     }
 
     function cache_refresher_process_post_function($post_id)
