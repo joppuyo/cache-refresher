@@ -2,6 +2,8 @@
 
 namespace NPX\CacheRefresher;
 
+use WP_CLI;
+
 class CLI
 {
     private static $instance;
