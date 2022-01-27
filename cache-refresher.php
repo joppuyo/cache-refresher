@@ -3,7 +3,7 @@
 /*
  * Plugin Name: Cache Refresher
  * Description: A plugin to refresh your cache periodically or on demand
- * Version: 0.0.2
+ * Version: 0.0.3
  */
 
 require __DIR__ . '/vendor/autoload.php';
